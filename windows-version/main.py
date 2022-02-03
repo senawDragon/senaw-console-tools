@@ -13,7 +13,17 @@ import winreg
 
 # Downloads
 audacity_d = "https://www.audacityteam.org/download/windows/"
+blender_d = "https://www.blender.org/download/release/Blender3.0/blender-3.0.1-windows-x64.msi/"
 firefox_d = "https://www.mozilla.org/en-US/firefox/download/thanks/"
+internetexplorerenus_d = "https://www.microsoft.com/en-US/download/confirmation.aspx?id=41628"
+internetexplorersvse_d = "https://www.microsoft.com/sv-SE/download/confirmation.aspx?id=41628"
+internetexplorerzhcn_d = "https://www.microsoft.com/zh-CN/download/confirmation.aspx?id=41628"
+internetexplorerjajp_d = "https://www.microsoft.com/ja-JP/download/confirmation.aspx?id=41628"
+microsoftedgeen_d = "https://go.microsoft.com/fwlink/?linkid=2108834&Channel=Stable&language=en"
+microsoftedgesv_d = "https://go.microsoft.com/fwlink/?linkid=2108834&Channel=Stable&language=sv"
+microsoftedgezhcn_d = "https://go.microsoft.com/fwlink/?linkid=2108834&Channel=Stable&language=zh-CN"
+microsoftedgeja_d = "https://go.microsoft.com/fwlink/?linkid=2108834&Channel=Stable&language=ja"
+winrar_d = "https://www.win-rar.com/postdownload.html?&L=0"
 
 
 def clear():
@@ -57,6 +67,8 @@ def foo(hive, flag):
 ip = get('https://api.ipify.org').content.decode('utf8')
 user = getpass.getuser()
 boot = "UEFI" if os.path.exists("/sys/firmware/efi") else "BIOS"
+cwd = os.getcwd()
+cwdfiles = os.listdir(cwd)
 # c = webbrowser.get('windows-default')
 
 
@@ -75,12 +87,30 @@ while True:
               "sourcec | This command allows you to see information about this program\n"
               "license | This command sends you to the MIT license\n"
               "boot | This command checks if your system is booted with bios or uefi\n"
+              "download | This command allows you to download programs from a library of listed programs\n"
+              "downloads | This command allows you to see all possible downloads"
               "github | This command sends you to the github repository for this project. "
               "Although the repository is private so you can't see it right now\n"
+              "cwd | This command allows you to see  your current working directory\n"
+              "cwd_files | This command allows you to look inside your current working directory"
               "exit | This command allows you to leave this console")
 
     if stdin == "IP":
         print(ip)
+
+    if stdin == "downloads":
+        print("audacity\n"
+              "blender\n"
+              "firefox\n"
+              "ie-en-US\n"
+              "ie-sv-SE\n"
+              "ie-zh-CH\n"
+              "ie-ja-JP\n"
+              "me-en-US\n"
+              "me-sv-SE\n"
+              "me-zh-CH\n"
+              "me-ja-JP\n"
+              "winrar\n")
 
     if stdin == "github":
         webbrowser.open("https://github.com/senawDragon/senaw-console-tools")
@@ -88,13 +118,20 @@ while True:
     if stdin == "boot":
         print("The system is booted with %s" % boot)
 
+    if stdin == "cwd":
+        print(cwd)
+
+    if stdin == "cwd_files":
+        print(cwdfiles)
+
     if stdin == "sourcec":
         print("Program use | This program can be used to obtain different information about your computer."
               " It can also be used to open software, use web browsers and even download other programs\n"
               "Google Chrome | This program uses google chrome as browser\n"
               "Source code | Visit senawDragon's github page to find the source code in one of my repositories\n"
               "License | MIT license, find more about the license in my github repo or"
-              " by using the license command.")
+              " by using the license command.\n"
+              "senawDragon | License owner and the sole owner and creator of this project")
 
     if stdin == "license":
         webbrowser.open("https://opensource.org/licenses/MIT")
@@ -105,6 +142,67 @@ while True:
             break
         else:
             subprocess.call([openin])
+
+    if stdin == "download":
+        downloadin = input(user + "_download> ")
+        if downloadin == "exit":
+            break
+
+        if downloadin == "audacity":
+            url = audacity_d
+            webbrowser.open(url)
+
+        if downloadin == "blender":
+            url = blender_d
+            webbrowser.open(url)
+
+        if downloadin == "firefox":
+            url = firefox_d
+            webbrowser.open(url)
+
+        if downloadin == "ie-en-US":
+            url = internetexplorerenus_d
+            webbrowser.open(url)
+
+        if downloadin == "ie-sv-SE":
+            url = internetexplorerenus_d
+            webbrowser.open(url)
+
+        if downloadin == "ie-en-US":
+            url = internetexplorerenus_d
+            webbrowser.open(url)
+
+        if downloadin == "ie-zh-CH":
+            url = internetexplorerzhcn_d
+            webbrowser.open(url)
+
+        if downloadin == "me-ja-JP":
+            url = internetexplorerjajp_d
+            webbrowser.open(url)
+
+        if downloadin == "me-en-US":
+            url = internetexplorerenus_d
+            webbrowser.open(url)
+
+        if downloadin == "me-sv-SE":
+            url = internetexplorerenus_d
+            webbrowser.open(url)
+
+        if downloadin == "me-en-US":
+            url = internetexplorerenus_d
+            webbrowser.open(url)
+
+        if downloadin == "me-zh-CH":
+            url = internetexplorerzhcn_d
+            webbrowser.open(url)
+
+        if downloadin == "me-ja-JP":
+            url = internetexplorerjajp_d
+            webbrowser.open(url)
+
+        if downloadin == "winrar":
+            url = winrar_d
+            webbrowser.open(url)
 
     if stdin == "web_search":
         searchin = input(user + "_web-search> ")
@@ -128,6 +226,7 @@ while True:
             print('Name=%s, Version=%s, Publisher=%s' % (software['name'], software['version'], software['publisher']))
         print('Number of installed apps: %s' % len(software_list))
 
+
     if stdin == "pc_specs":
         print("Operative System |", platform.system(), "| Operative system release |", platform.release(), "| Operative system version", platform.version())
         print("Architecture |", platform.machine())
@@ -142,3 +241,4 @@ while True:
 
     if stdin == "exit":
         break
+
