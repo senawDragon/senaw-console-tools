@@ -5,7 +5,6 @@ import subprocess
 import webbrowser
 import platform
 import os
-from urllib.request import urlopen
 import socket
 import re
 import uuid
