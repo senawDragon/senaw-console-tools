@@ -5,6 +5,7 @@ import subprocess
 import webbrowser
 import platform
 import os
+from urllib.request import urlopen
 import socket
 import re
 import uuid
@@ -13,7 +14,17 @@ import winreg
 
 # Downloads
 audacity_d = "https://www.audacityteam.org/download/windows/"
+blender_d = "https://www.blender.org/download/release/Blender3.0/blender-3.0.1-windows-x64.msi/"
 firefox_d = "https://www.mozilla.org/en-US/firefox/download/thanks/"
+internetexplorerenus_d = "https://www.microsoft.com/en-US/download/confirmation.aspx?id=41628"
+internetexplorersvse_d = "https://www.microsoft.com/sv-SE/download/confirmation.aspx?id=41628"
+internetexplorerzhcn_d = "https://www.microsoft.com/zh-CN/download/confirmation.aspx?id=41628"
+internetexplorerjajp_d = "https://www.microsoft.com/ja-JP/download/confirmation.aspx?id=41628"
+microsoftedgeen_d = "https://go.microsoft.com/fwlink/?linkid=2108834&Channel=Stable&language=en"
+microsoftedgesv_d = "https://go.microsoft.com/fwlink/?linkid=2108834&Channel=Stable&language=sv"
+microsoftedgezhcn_d = "https://go.microsoft.com/fwlink/?linkid=2108834&Channel=Stable&language=zh-CN"
+microsoftedgeja_d = "https://go.microsoft.com/fwlink/?linkid=2108834&Channel=Stable&language=ja"
+winrar_d = "https://www.win-rar.com/postdownload.html?&L=0"
 
 
 def clear():
@@ -57,6 +68,8 @@ def foo(hive, flag):
 ip = get('https://api.ipify.org').content.decode('utf8')
 user = getpass.getuser()
 boot = "UEFI" if os.path.exists("/sys/firmware/efi") else "BIOS"
+cwd = os.getcwd()
+cwdfiles = os.listdir(cwd)
 # c = webbrowser.get('windows-default')
 
 
@@ -75,18 +88,42 @@ while True:
               "sourcec | This command allows you to see information about this program\n"
               "license | This command sends you to the MIT license\n"
               "boot | This command checks if your system is booted with bios or uefi\n"
+              "download | This command allows you to download programs from a library of listed programs\n"
+              "downloads | This command allows you to see all possible downloads"
               "github | This command sends you to the github repository for this project. "
               "Although the repository is private so you can't see it right now\n"
+              "cwd | This command allows you to see  your current working directory\n"
+              "cwd_files | This command allows you to look inside your current working directory"
               "exit | This command allows you to leave this console")
 
     if stdin == "IP":
         print(ip)
+
+    if stdin == "downloads":
+        print("audacity"
+              "blender"
+              "firefox"
+              "ie-en-US"
+              "ie-sv-SE"
+              "ie-zh-CH"
+              "ie-ja-JP"
+              "me-en-US"
+              "me-sv-SE"
+              "me-zh-CH"
+              "me-ja-JP"
+              "winrar")
 
     if stdin == "github":
         webbrowser.open("https://github.com/senawDragon/senaw-console-tools")
 
     if stdin == "boot":
         print("The system is booted with %s" % boot)
+
+    if stdin == "cwd":
+        print(cwd)
+
+    if stdin == "cwd_files":
+        print(cwdfiles)
 
     if stdin == "sourcec":
         print("Program use | This program can be used to obtain different information about your computer."
@@ -105,6 +142,61 @@ while True:
             break
         else:
             subprocess.call([openin])
+
+    if stdin == "download":
+        downloadin = input(user + "_download> ")
+        if downloadin == "exit":
+            break
+        if downloadin == "audacity":
+            url = audacity_d
+        if downloadin == "blender":
+            url = blender_d
+        if downloadin == "firefox":
+            url = firefox_d
+        if downloadin == "ie-en-US":
+            url = internetexplorerenus_d
+        if downloadin == "ie-sv-SE":
+            url = internetexplorerenus_d
+        if downloadin == "ie-en-US":
+            url = internetexplorerenus_d
+        if downloadin == "ie-zh-CH":
+            url = internetexplorerzhcn_d
+        if downloadin == "me-ja-JP":
+            url = internetexplorerjajp_d
+        if downloadin == "me-en-US":
+            url = internetexplorerenus_d
+        if downloadin == "me-sv-SE":
+            url = internetexplorerenus_d
+        if downloadin == "me-en-US":
+            url = internetexplorerenus_d
+        if downloadin == "me-zh-CH":
+            url = internetexplorerzhcn_d
+        if downloadin == "me-ja-JP":
+            url = internetexplorerjajp_d
+        if downloadin == "winrar":
+            url = winrar_d
+
+        file_name = url.split('/')[-1]
+        u = urlopen(url)
+        f = open(file_name, 'wb')
+        meta = u.info()
+        file_size = int(meta.getheaders("Content-Length")[0])
+        print("Downloading: %s Bytes: %s" % (file_name, file_size))
+
+        file_size_dl = 0
+        block_sz = 8192
+        while True:
+            buffer = u.read(block_sz)
+            if not buffer:
+                break
+
+            file_size_dl += len(buffer)
+            f.write(buffer)
+            status = r"%10d  [%3.2f%%]" % (file_size_dl, file_size_dl * 100. / file_size)
+            status = status + chr(8) * (len(status) + 1)
+            print(status)
+
+        f.close()
 
     if stdin == "web_search":
         searchin = input(user + "_web-search> ")
@@ -142,3 +234,4 @@ while True:
 
     if stdin == "exit":
         break
+
