@@ -100,18 +100,18 @@ while True:
         print(ip)
 
     if stdin == "downloads":
-        print("audacity"
-              "blender"
-              "firefox"
-              "ie-en-US"
-              "ie-sv-SE"
-              "ie-zh-CH"
-              "ie-ja-JP"
-              "me-en-US"
-              "me-sv-SE"
-              "me-zh-CH"
-              "me-ja-JP"
-              "winrar")
+        print("audacity\n"
+              "blender\n"
+              "firefox\n"
+              "ie-en-US\n"
+              "ie-sv-SE\n"
+              "ie-zh-CH\n"
+              "ie-ja-JP\n"
+              "me-en-US\n"
+              "me-sv-SE\n"
+              "me-zh-CH\n"
+              "me-ja-JP\n"
+              "winrar\n")
 
     if stdin == "github":
         webbrowser.open("https://github.com/senawDragon/senaw-console-tools")
@@ -131,7 +131,8 @@ while True:
               "Google Chrome | This program uses google chrome as browser\n"
               "Source code | Visit senawDragon's github page to find the source code in one of my repositories\n"
               "License | MIT license, find more about the license in my github repo or"
-              " by using the license command.")
+              " by using the license command.\n"
+              "senawDragon | License owner and the sole owner and creator of this project")
 
     if stdin == "license":
         webbrowser.open("https://opensource.org/licenses/MIT")
@@ -147,36 +148,62 @@ while True:
         downloadin = input(user + "_download> ")
         if downloadin == "exit":
             break
+
         if downloadin == "audacity":
             url = audacity_d
+            webbrowser.open(url)
+
         if downloadin == "blender":
             url = blender_d
+            webbrowser.open(url)
+
         if downloadin == "firefox":
             url = firefox_d
+            webbrowser.open(url)
+
         if downloadin == "ie-en-US":
             url = internetexplorerenus_d
+            webbrowser.open(url)
+
         if downloadin == "ie-sv-SE":
             url = internetexplorerenus_d
+            webbrowser.open(url)
+
         if downloadin == "ie-en-US":
             url = internetexplorerenus_d
+            webbrowser.open(url)
+
         if downloadin == "ie-zh-CH":
             url = internetexplorerzhcn_d
+            webbrowser.open(url)
+
         if downloadin == "me-ja-JP":
             url = internetexplorerjajp_d
+            webbrowser.open(url)
+
         if downloadin == "me-en-US":
             url = internetexplorerenus_d
+            webbrowser.open(url)
+
         if downloadin == "me-sv-SE":
             url = internetexplorerenus_d
+            webbrowser.open(url)
+
         if downloadin == "me-en-US":
             url = internetexplorerenus_d
+            webbrowser.open(url)
+
         if downloadin == "me-zh-CH":
             url = internetexplorerzhcn_d
+            webbrowser.open(url)
+
         if downloadin == "me-ja-JP":
             url = internetexplorerjajp_d
+            webbrowser.open(url)
+
         if downloadin == "winrar":
             url = winrar_d
-
-        webbrowser.open(url)
+            webbrowser.open(url)
 
     if stdin == "web_search":
         searchin = input(user + "_web-search> ")
@@ -200,6 +227,7 @@ while True:
             print('Name=%s, Version=%s, Publisher=%s' % (software['name'], software['version'], software['publisher']))
         print('Number of installed apps: %s' % len(software_list))
 
+
     if stdin == "pc_specs":
         print("Operative System |", platform.system(), "| Operative system release |", platform.release(), "| Operative system version", platform.version())
         print("Architecture |", platform.machine())
@@ -214,3 +242,4 @@ while True:
 
     if stdin == "exit":
         break
+
