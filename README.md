@@ -1,5 +1,5 @@
 # senaw-console-tools
-Console application to gather information about your system. [![Github All Releases](https://img.shields.io/github/downloads/senawDragon/senaw-console-tools/total.svg)]() [![GitHub repo size](https://img.shields.io/github/repo-size/senawDragon/senaw-console-tools)]()
+Console application to gather information about your system. [![Github All Releases](https://img.shields.io/github/downloads/senawDragon/senaw-console-tools/total.svg)]() [![GitHub repo size](https://img.shields.io/github/repo-size/senawDragon/senaw-console-tools)]() [![Lines of code](https://img.shields.io/tokei/github/senawDragon/senaw-console-tools)]()
 
 ## Available commands
 ```
