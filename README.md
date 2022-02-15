@@ -7,7 +7,7 @@ help  | This command allows you to see all commands
 IP | This command allows you to see your public IP address
 software_installed | This command allows you to see all installed software on your computer
 pc_specs | This command allows you to see a variety of your computer's specifications
-clear | This command allows you to clear out all previous characters and graphics from screen, this does the same thing as clear/cls
+clear | This command allows you to clear terminal, this does the same thing as clear/cls
 open | This command allows you to open software
 web_browse | This command allows you to visit a website
 web_search | This command allows you to search using google
