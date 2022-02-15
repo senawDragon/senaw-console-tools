@@ -10,7 +10,6 @@ Current stable version:
 ```
 There are no stable versions at the moment
 ```
-
 ## Info
 This program is written completely in ***Python3***.
 
