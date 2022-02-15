@@ -8,7 +8,7 @@ v0.05
 ```
 Current stable version:
 ```
-There are no stable versions at the moment
+v0.05
 ```
 ## Info
 This program is written completely in ***Python3***.
