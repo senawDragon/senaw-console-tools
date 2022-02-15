@@ -2,7 +2,7 @@
 Console application to gather information about your system. [![Github All Releases](https://img.shields.io/github/downloads/senawDragon/senaw-console-tools/total.svg)]() [![GitHub repo size](https://img.shields.io/github/repo-size/senawDragon/senaw-console-tools)]()
 
 ## Compatible operative systems
-**If a operative system is not listed below, chances are that not every or maybe any features work like they are supposed to.**
+**If a operative system is not listed below, it is not supported. Chances are that most if not all features wont work like they are supposed to.**
 ```
 Windows
 ```
