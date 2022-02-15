@@ -19,6 +19,9 @@ This program is written completely in ***Python3***.
 Windows
 ```
 
+"" Run
+
+
 ## Available commands
 ```
 help  | This command allows you to see all commands
