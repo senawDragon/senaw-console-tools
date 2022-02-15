@@ -16,7 +16,7 @@ license | This command sends you to the MIT license
 boot | This command checks if your system is booted with bios or uefi
 download | This command allows you to download programs from a library of listed programs
 downloads | This command allows you to see all possible downloads
-github | This command sends you to the github repository for this project.
+github | This command sends you to the github repository for this project
 cwd | This command allows you to see  your current working directory
 cwd_files | This command allows you to look inside your current working directory
 exit | This command allows you to leave this console
