@@ -4,7 +4,7 @@ Console application to gather information about your system. [![Github All Relea
 ## Version
 Current version:
 ```
-v0.032
+v0.034
 ```
 Current stable version:
 ```
