@@ -19,8 +19,12 @@ This program is written completely in ***Python3***.
 Windows
 ```
 
-"" Run
-
+## Run
+```
+- cd into main.py folder
+- pip install -r requirements.txt
+- run "main.py"
+```
 
 ## Available commands
 ```
