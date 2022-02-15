@@ -3,7 +3,6 @@ Console application to gather information about your system. [![Github All Relea
 
 ## Compatible operative systems
 **If a operative system is not listed below, it is not supported. Chances are that most if not all features wont work like they are supposed to.**
-yes
 ```
 Windows
 ```
