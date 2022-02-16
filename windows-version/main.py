@@ -29,6 +29,8 @@ microsoftedgezhcn_d = "https://go.microsoft.com/fwlink/?linkid=2108834&Channel=S
 microsoftedgeja_d = "https://go.microsoft.com/fwlink/?linkid=2108834&Channel=Stable&language=ja"
 winrar_d = "https://www.win-rar.com/postdownload.html?&L=0"
 
+curVer = 0.06
+
 
 def clear():
     if name == 'nt':
@@ -75,7 +77,7 @@ cwd = os.getcwd()
 cwdfiles = os.listdir(cwd)
 # c = webbrowser.get('windows-default')
 
-
+print("You are using version " + str(curVer) + " of senaw-console-tools")
 while True:
     stdin = input(user + "> ")
 
