@@ -30,7 +30,7 @@ Windows
 ```
 - cd into main.py folder
 - pip uninstall -r requirements.txt
-- delete the
+- delete the project folder
 ```
 
 ## Available commands
