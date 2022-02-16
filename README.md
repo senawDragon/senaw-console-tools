@@ -26,6 +26,13 @@ Windows
 - run "main.py"
 ```
 
+## Uninstall
+```
+- cd into main.py folder
+- pip uninstall -r requirements.txt
+- delete the
+```
+
 ## Available commands
 ```
 help  | This command allows you to see all commands
