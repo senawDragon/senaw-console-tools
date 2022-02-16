@@ -1,8 +1,12 @@
 import getpass
 from requests import get
+import time
 from os import name, system
 import subprocess
+from tkinter import *
+from tkinter.ttk import *
 import webbrowser
+import tempfile
 import platform
 import os
 import socket
@@ -24,8 +28,6 @@ microsoftedgesv_d = "https://go.microsoft.com/fwlink/?linkid=2108834&Channel=Sta
 microsoftedgezhcn_d = "https://go.microsoft.com/fwlink/?linkid=2108834&Channel=Stable&language=zh-CN"
 microsoftedgeja_d = "https://go.microsoft.com/fwlink/?linkid=2108834&Channel=Stable&language=ja"
 winrar_d = "https://www.win-rar.com/postdownload.html?&L=0"
-
-curVer = 0.05
 
 
 def clear():
@@ -73,7 +75,7 @@ cwd = os.getcwd()
 cwdfiles = os.listdir(cwd)
 # c = webbrowser.get('windows-default')
 
-print("You are using version " + str(curVer) + " of senaw-console-tools")
+
 while True:
     stdin = input(user + "> ")
 
@@ -82,6 +84,8 @@ while True:
               "IP | This command allows you to see your public IP address\n"
               "software_installed | This command allows you to see all installed software on your computer\n"
               "pc_specs | This command allows you to see a variety of your computer's specifications\n"
+              "IP_MEME | This command allows you to run a D4DJ IP meme. "
+              "This will display your actual public IP so be careful\n"
               "clear | This command allows you to clear out all previous commands\n"
               "open | This command allows you to open software\n"
               "web_browse | This command allows you to visit a website\n"
@@ -98,6 +102,40 @@ while True:
 
     if stdin == "IP":
         print(ip)
+
+    if stdin == "IP_MEME":
+        ip = get('https://api.ipify.org').content.decode('utf8')
+        website = "https://www.youtube.com/watch?v=Fah9BwbyUEo"
+
+        webbrowser.open(website)
+        time.sleep(2)
+        print(ip)
+
+        root = Tk()
+        w = 1920
+        h = 100
+        ws = root.winfo_screenwidth()
+        hs = root.winfo_screenheight()
+        print(ws, hs)
+        # x = (ws/2) - (w/2)
+        # y = (hs/2) - (h/2)
+        root.geometry('%dx%d+%d+%d' % (w, h, 0, 0))
+
+        ICON = (b'\x00\x00\x01\x00\x01\x00\x10\x10\x00\x00\x01\x00\x08\x00h\x05\x00\x00'
+                b'\x16\x00\x00\x00(\x00\x00\x00\x10\x00\x00\x00 \x00\x00\x00\x01\x00'
+                b'\x08\x00\x00\x00\x00\x00@\x05\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+                b'\x00\x01\x00\x00\x00\x01') + b'\x00' * 1282 + b'\xff' * 64
+
+        _, ICON_PATH = tempfile.mkstemp()
+        with open(ICON_PATH, 'wb') as icon_file:
+            icon_file.write(ICON)
+
+        root.title("")
+        root.iconbitmap(default=ICON_PATH)
+
+        label = Label(root, text=str(ip), font="-weight bold -size 55").pack()
+
+        root.mainloop()
 
     if stdin == "downloads":
         print("audacity\n"
@@ -242,4 +280,3 @@ while True:
 
     if stdin == "exit":
         break
-
