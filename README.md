@@ -19,7 +19,7 @@ This program is written completely in ***Python3***.
 Windows
 ```
 
-## Run
+## Install and run
 ```
 - cd into main.py folder
 - pip install -r requirements.txt
