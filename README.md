@@ -21,6 +21,8 @@ Windows
 
 ## Install and run
 ```
+- download zip folder
+- extract zip folder
 - cd into main.py folder
 - pip install -r requirements.txt
 - run "main.py"
