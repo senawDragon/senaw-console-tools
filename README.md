@@ -30,6 +30,7 @@ Windows
 ```
 help  | This command allows you to see all commands
 IP | This command allows you to see your public IP address
+IP_MEME | D4DJ TOOK YOUR IP go brr
 software_installed | This command allows you to see all installed software on your computer
 pc_specs | This command allows you to see a variety of your computer's specifications
 clear | This command allows you to clear terminal, this does the same thing as clear/cls
