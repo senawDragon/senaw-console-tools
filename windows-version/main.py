@@ -40,6 +40,45 @@ def clear():
         _ = system('clear')
 
 
+def portscan():
+    clear()
+
+    remoteServer = input("Enter a remote host to scan")
+    remoteServerIP = socket.gethostbyname(remoteServer)
+
+    print("-" * 60)
+    print("Please wait, scanning remote host", remoteServerIP)
+    print("-" * 60)
+
+    t1 = datetime.now()
+
+    try:
+        for port in range(1,1025):
+            sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            result = sock.connect_ex((remoteServerIP, port))
+            if result == 0:
+                print("Port {}: 	 Open".format(port))
+            sock.close()
+
+    except KeyboardInterrupt:
+        print("You pressed Ctrl+C")
+        sys.exit()
+
+    except socket.gaierror:
+        print('Hostname could not be resolved. Exiting')
+        sys.exit()
+
+    except socket.error:
+        print("Couldn't connect to server")
+        sys.exit()
+
+    t2 = datetime.now()
+
+    total = t2 - t1
+
+    print('Scanning Completed in: ', total)
+
+        
 def foo(hive, flag):
     aReg = winreg.ConnectRegistry(None, hive)
     aKey = winreg.OpenKey(aReg, r"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall",
@@ -142,41 +181,7 @@ while True:
         root.mainloop()
         
     if stdin == "portscan":
-        if len(sys.argv) == 2:
-     
-    
-            target = socket.gethostbyname(sys.argv[1])
-        else:
-            print("Invalid amount of Argument")
-
-
-            print("-" * 50)
-            print("Scanning Target: " + target)
-            print("Scanning started at:" + str(datetime.now()))
-            print("-" * 50)
-
-        try:
-
-
-            for port in range(1,65535):
-                s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-                socket.setdefaulttimeout(1)
-
-
-                result = s.connect_ex((target,port))
-                if result ==0:
-                    print("Port {} is open".format(port))
-                s.close()
-
-        except KeyboardInterrupt:
-                print("\n Exiting Program !!!!")
-                sys.exit()
-        except socket.gaierror:
-                print("\n Hostname Could Not Be Resolved !!!!")
-                sys.exit()
-        except socket.error:
-                print("\ Server not responding !!!!")
-                sys.exit()
+        portscan()
     
     if stdin == "downloads":
         print("audacity\n"
