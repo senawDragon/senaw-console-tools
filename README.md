@@ -4,7 +4,7 @@ Console application to gather information about your system. [![Github All Relea
 ## Version
 Current version:
 ```
-v0.06
+v0.07
 ```
 Current stable version:
 ```
@@ -55,4 +55,5 @@ github | This command sends you to the github repository for this project
 cwd | This command allows you to see  your current working directory
 cwd_files | This command allows you to look inside your current working directory
 exit | This command allows you to leave this console
+passgen | This command allows you to run a terminal-based password generator
 ```
