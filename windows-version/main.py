@@ -9,6 +9,8 @@ import webbrowser
 import tempfile
 import platform
 import os
+import random
+import string
 import socket
 import re
 import uuid
@@ -70,6 +72,35 @@ def foo(hive, flag):
     return software_list
 
 
+def passgen():
+    length = int(input('\nEnter the length of the password: '))
+
+    lower = string.ascii_lowercase
+    upper = string.ascii_uppercase
+    num = string.digits
+    symbols = string.punctuation
+
+    allC = lower + upper + num + symbols
+
+    temp = random.sample(allC, length)
+    data = random.sample(lower, length)
+
+    password = "".join(temp)
+    StoreName = "".join(data)
+
+
+    l = input("Type y to save the password and see the name of the file the password is stored in, type n to dismiss and print password.")
+
+    if l == "y":
+        print(password + " Your password have now been saved in your computer. The password is stored in the file named " + StoreName)
+        python_file = open(StoreName, "w")
+        python_file.write('#' + ' ' + password + '\n')
+        python_file.close()
+
+    if l == "n":
+        print("Generated password: " + password)
+
+
 ip = get('https://api.ipify.org').content.decode('utf8')
 user = getpass.getuser()
 boot = "UEFI" if os.path.exists("/sys/firmware/efi") else "BIOS"
@@ -84,6 +115,7 @@ while True:
     if stdin == "help":
         print("help | This command allows you to see all commands\n"
               "IP | This command allows you to see your public IP address\n"
+              "passgen | This command allows you to run a terminal-based password generator
               "software_installed | This command allows you to see all installed software on your computer\n"
               "pc_specs | This command allows you to see a variety of your computer's specifications\n"
               "IP_MEME | This command allows you to run a D4DJ IP meme. "
@@ -105,6 +137,9 @@ while True:
     if stdin == "IP":
         print(ip)
 
+    if stdin == "passgen":
+        passgen()
+     
     if stdin == "IP_MEME":
         ip = get('https://api.ipify.org').content.decode('utf8')
         website = "https://www.youtube.com/watch?v=Fah9BwbyUEo"
