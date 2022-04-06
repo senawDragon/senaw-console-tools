@@ -94,7 +94,7 @@ def passgen():
     if l == "y":
         print(password + " Your password have now been saved in your computer. The password is stored in the file named " + StoreName)
         python_file = open(StoreName, "w")
-        python_file.write('#' + ' ' + password + '\n')
+        python_file.write('Password:' + ' ' + password + '\n')
         python_file.close()
 
     if l == "n":
@@ -115,7 +115,7 @@ while True:
     if stdin == "help":
         print("help | This command allows you to see all commands\n"
               "IP | This command allows you to see your public IP address\n"
-              "passgen | This command allows you to run a terminal-based password generator
+              "passgen | This command allows you to run a terminal-based password generator\n"
               "software_installed | This command allows you to see all installed software on your computer\n"
               "pc_specs | This command allows you to see a variety of your computer's specifications\n"
               "IP_MEME | This command allows you to run a D4DJ IP meme. "
