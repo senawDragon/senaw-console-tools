@@ -1,9 +1,6 @@
 # senaw-console-tools
 Console application to gather information about your system and execute various tasks. It can be used for many purposes. [![Github All Releases](https://img.shields.io/github/downloads/senawDragon/senaw-console-tools/total.svg)]() [![GitHub repo size](https://img.shields.io/github/repo-size/senawDragon/senaw-console-tools)]()
 
-## Status
-I took a break from this project. I plan to begin working on senaw-console-tools again.
-
 ## Version
 Current version:
 ```
@@ -61,3 +58,6 @@ cwd_files | This command allows you to look inside your current working director
 exit | This command allows you to leave this console
 passgen | This command allows you to run a terminal-based password generator
 ```
+
+## Status
+I took a break from this project. I plan to begin working on senaw-console-tools again.
