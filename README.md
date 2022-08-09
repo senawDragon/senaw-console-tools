@@ -8,7 +8,7 @@ v0.07
 ```
 Current stable version:
 ```
-v0.06
+v0.07
 ```
 ## Info
 This program is written completely in ***Python3***.
@@ -58,6 +58,3 @@ cwd_files | This command allows you to look inside your current working director
 exit | This command allows you to leave this console
 passgen | This command allows you to run a terminal-based password generator
 ```
-
-## Status
-I took a break from this project. I plan to begin working on senaw-console-tools again.
