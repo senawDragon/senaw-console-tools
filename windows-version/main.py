@@ -31,7 +31,7 @@ microsoftedgezhcn_d = "https://go.microsoft.com/fwlink/?linkid=2108834&Channel=S
 microsoftedgeja_d = "https://go.microsoft.com/fwlink/?linkid=2108834&Channel=Stable&language=ja"
 winrar_d = "https://www.win-rar.com/postdownload.html?&L=0"
 
-curVer = 0.06
+curVer = 0.07
 
 
 def clear():
@@ -203,7 +203,6 @@ while True:
     if stdin == "sourcec":
         print("Program use | This program can be used to obtain different information about your computer."
               " It can also be used to open software, use web browsers and even download other programs\n"
-              "Google Chrome | This program uses google chrome as browser\n"
               "Source code | Visit senawDragon's github page to find the source code in one of my repositories\n"
               "License | MIT license, find more about the license in my github repo or"
               " by using the license command.\n"
