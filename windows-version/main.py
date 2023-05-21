@@ -83,17 +83,15 @@ def passgen():
     allC = lower + upper + num + symbols
 
     temp = random.sample(allC, length)
-    data = random.sample(lower, length)
 
     password = "".join(temp)
-    StoreName = "".join(data)
 
-
-    l = input("Type y to save the password and see the name of the file the password is stored in, type n to dismiss and print password.")
+    l = input("Type y to save the password and etner a name for the file the password is stored in, type n to dismiss and only print password.")
 
     if l == "y":
-        print(password + " Your password have now been saved in your computer. The password is stored in the file named " + StoreName)
-        python_file = open(StoreName, "w")
+        fn = input("\n" + user + "> ")
+        print(password + " Your password have now been saved in your computer. The password is stored in the file: " + fn)
+        python_file = open(fn, "w")
         python_file.write('Password:' + ' ' + password + '\n')
         python_file.close()
 
