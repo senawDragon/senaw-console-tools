@@ -12,7 +12,6 @@ v0.07
 ```
 ## Info
 This program is written completely in ***Python3***.
-This is a solo development project.
 
 ## Compatible operative systems
 **If an operative system is not listed below, it is not supported. Chances are that most if not all features wont work like they are supposed to. Neither Linux or mac OS have been tested.**
