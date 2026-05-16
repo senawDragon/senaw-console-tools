@@ -48,7 +48,7 @@ web_browse | This command allows you to visit a website
 web_search | This command allows you to search using google
 sourcec | This command allows you to see information about this program
 license | This command sends you to the MIT license
-boot | This command checks if your system is booted with bios or uefi
+boot | This command checks if your system is booted with legacy bios or uefi
 download | This command allows you to download programs from a library of listed programs
 downloads | This command allows you to see all possible downloads
 github | This command sends you to the github repository for this project
